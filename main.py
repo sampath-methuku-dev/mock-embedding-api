@@ -29,7 +29,7 @@ async def invoke_bedrock_model(model_id: str, request: Request):
     if not input_text:
         raise HTTPException(status_code=422, detail="'inputText' is required")
 
-    dim = int(data.get("dimensions", 1024))
+    dim = int(data.get("dimensions", 768))
     vector = generate_vector(input_text, dim)
     token_count = max(1, len(input_text) // 4)
 
